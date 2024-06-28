@@ -21,7 +21,7 @@ function styles() {
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(postcss([autoprefixer()]))
     .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("dist/css"))
+    .pipe(gulp.dest("src/css"))
     .pipe(browserSync.stream());
 }
 
@@ -34,7 +34,7 @@ function html() {
 }
 function build() {
   return gulp
-    .src(["src/css/**/*.css", "src/image/**/*", "src/icons/**/*"])
+    .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
     .pipe(gulp.dest("dist"));
 }
 exports.default = gulp.parallel(watch, server, styles, html);
