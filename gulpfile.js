@@ -29,10 +29,14 @@ function watch() {
   gulp.watch("src/sass/**/*.+(scss|sass)", styles);
   gulp.watch("src/*.html").on("change", browserSync.reload);
 }
+function html() {
+  return gulp.src("src/*.html").pipe(gulp.dest("dist"));
+}
 function build() {
+  html();
   return gulp
     .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
     .pipe(gulp.dest("dist"));
 }
 exports.build = build;
-exports.default = gulp.parallel(watch, server, styles);
+exports.default = gulp.parallel(watch, server, styles, html);
