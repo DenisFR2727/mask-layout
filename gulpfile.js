@@ -32,14 +32,18 @@ function watch() {
 function build() {
   return gulp
     .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
-    .pipe(replace("src/css", "dist/css"))
-    .pipe(replace("src/image", "dist/image"))
-    .pipe(replace("src/icons", "dist/icons"))
     .pipe(gulp.dest("dist"));
 }
 exports.build = build;
 exports.default = gulp.parallel(watch, server, styles);
-
+// function build() {
+//   return gulp
+//     .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
+//     .pipe(replace("src/css", "dist/css"))
+//     .pipe(replace("src/image", "dist/image"))
+//     .pipe(replace("src/icons", "dist/icons"))
+//     .pipe(gulp.dest("dist"));
+// }
 // function build() {
 //   let buildCss = gulp.src("src/css/**/*.css").pipe(gulp.dest("dist/css"));
 
