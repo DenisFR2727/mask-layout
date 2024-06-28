@@ -5,7 +5,7 @@ const rename = require("gulp-rename");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cleanCSS = require("gulp-clean-css");
-
+const replace = require("gulp-replace");
 // Static server
 function server() {
   browserSync.init({
@@ -32,6 +32,9 @@ function watch() {
 function build() {
   return gulp
     .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
+    .pipe(replace("src/css", "dist/css"))
+    .pipe(replace("src/image", "dist/image"))
+    .pipe(replace("src/icons", "dist/icons"))
     .pipe(gulp.dest("dist"));
 }
 exports.build = build;
