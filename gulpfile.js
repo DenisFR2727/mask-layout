@@ -33,10 +33,9 @@ function html() {
   return gulp.src("src/*.html").pipe(gulp.dest("dist"));
 }
 function build() {
-  html();
   return gulp
     .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
     .pipe(gulp.dest("dist"));
 }
-exports.build = build;
 exports.default = gulp.parallel(watch, server, styles, html);
+exports.build = gulp.series(html, build);
