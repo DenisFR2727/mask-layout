@@ -5,7 +5,6 @@ const rename = require("gulp-rename");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cleanCSS = require("gulp-clean-css");
-const merge = require("merge-stream");
 
 // Static server
 function server() {
@@ -31,15 +30,21 @@ function watch() {
   gulp.watch("src/*.html").on("change", browserSync.reload);
 }
 function build() {
-  let buildCss = gulp.src("src/css/**/*.css").pipe(gulp.dest("dist/css"));
-
-  let buildHtml = gulp.src("src/*.html").pipe(gulp.dest("dist"));
-
-  let buildImages = gulp.src("src/image/**/*").pipe(gulp.dest("dist/image"));
-
-  let buildIcons = gulp.src("src/icons/**/*").pipe(gulp.dest("dist/icons"));
-
-  return merge(buildCss, buildHtml, buildImages, buildIcons);
+  return gulp
+    .src(["src/css/**/*.css", "src/*.html", "src/image/**/*", "src/icons/**/*"])
+    .pipe(gulp.dest("dist"));
 }
 exports.build = build;
 exports.default = gulp.parallel(watch, server, styles);
+
+// function build() {
+//   let buildCss = gulp.src("src/css/**/*.css").pipe(gulp.dest("dist/css"));
+
+//   let buildHtml = gulp.src("src/*.html").pipe(gulp.dest("dist"));
+
+//   let buildImages = gulp.src("src/image/**/*").pipe(gulp.dest("dist/image"));
+
+//   let buildIcons = gulp.src("src/icons/**/*").pipe(gulp.dest("dist/icons"));
+
+//   return merge(buildCss, buildHtml, buildImages, buildIcons);
+// }
