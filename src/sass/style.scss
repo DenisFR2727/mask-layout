@@ -211,7 +211,6 @@ body {
 
           .service__text {
             padding-left: 20px;
-            // padding-top: 6px;
           }
         }
         .service:last-of-type {
@@ -349,7 +348,7 @@ body {
           position: absolute;
           bottom: 0;
           right: 0;
-          background: #1b5fc1;
+          background: $color-blue;
           p {
             color: #fff;
             font-family: "Open Sans";
@@ -362,18 +361,17 @@ body {
         }
       }
       .right {
-        // display: flex;
         .block-top {
           display: flex;
           .white {
             width: 285px;
-            background: #fff;
+            background: $color-white;
             color: #575c74;
           }
           .blue {
             width: 285px;
-            background: #1b5fc1;
-            color: #fff;
+            background: $color-blue;
+            color: $color-white;
           }
           .block-right-top {
             font-family: "Open Sans";
@@ -389,7 +387,7 @@ body {
         }
         .block-right-bottom {
           width: 570px;
-          background: #ffb800;
+          background: $color-yellow;
           padding-left: 38px;
           h2 {
             padding-top: 45px;
@@ -418,8 +416,8 @@ body {
 
             .btn {
               @include btn;
-              border: 1px solid #1b5fc1;
-              color: #1b5fc1;
+              border: 1px solid $color-blue;
+              color: $color-blue;
 
               cursor: pointer;
               .btn--learnmore {
@@ -428,7 +426,7 @@ body {
             }
 
             .line {
-              background: white;
+              background: $color-white;
               width: 1px;
               height: 100%;
             }
@@ -439,7 +437,7 @@ body {
               .phone {
                 padding-left: 13px;
                 .text {
-                  color: #1b5fc1;
+                  color: $color-blue;
                   font-size: 14px;
                   font-family: Open Sans;
                   font-weight: 600;
@@ -479,12 +477,11 @@ body {
     .line {
       margin-left: 16px;
       width: 147px;
-      background: #ffb800;
+      background: $color-yellow;
       height: 1px;
     }
     .labs {
       width: 100%;
-      //   padding-left: 87px;
       padding-right: 100px;
       display: flex;
       justify-content: space-evenly;
@@ -535,7 +532,7 @@ body {
             width: 56px;
             height: 56px;
             flex-shrink: 0;
-            background: #1b5fc1;
+            background: $color-blue;
             border-radius: 50%;
             img {
               position: absolute;
